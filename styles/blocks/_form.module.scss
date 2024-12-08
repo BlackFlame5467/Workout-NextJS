@@ -1,0 +1,218 @@
+@import '@/styles/base/vars';
+.form {
+	margin: 0 0 65px 0;
+
+	&__title {
+		font-size: 34px;
+		font-weight: 600;
+		color: $main-color;
+		margin: 0 0 45px 0;
+		text-transform: uppercase;
+	}
+	&__wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0 90px;
+	}
+	&__message {
+		position: relative;
+		max-width: 515px;
+		background: $second-bg;
+		border-radius: 30px;
+		padding: 55px 40px;
+
+		&::after {
+			content: url('../../public/message.svg');
+			position: absolute;
+			top: 100px;
+			right: -50px;
+		}
+	}
+	&__text {
+		font-size: 30px;
+		letter-spacing: 1.2px;
+		color: $main-color;
+	}
+	&__form {
+		max-width: 470px;
+		animation: Show 0.3s ease-in forwards;
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 30px 0;
+
+		&.form__none {
+			display: none;
+		}
+	}
+	&__input {
+		font-size: 24px;
+		font-weight: 600;
+		color: $main-color;
+		width: 100%;
+		border: 1px solid rgba($main-border, 0.6);
+		padding: 20px 0 20px 30px;
+		border-radius: 10px;
+		-webkit-appearance: none;
+
+		&:focus {
+			border-color: $hover-border;
+		}
+		&[type='number'] {
+			-moz-appearance: textfield;
+		}
+		&[type='number']::-webkit-outer-spin-button,
+		&[type='number']::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+		}
+	}
+	&__btn {
+		background: $accent-bg;
+		border: 40px;
+		color: $white-color;
+		text-transform: uppercase;
+		font-size: 24px;
+		font-weight: bold;
+		border: 1px solid $main-border;
+		border-radius: 40px;
+		padding: 14px 0;
+		transition: all 0.3s ease-in-out;
+
+		&:hover {
+			background: transparent;
+			color: $main-color;
+		}
+	}
+}
+
+.submit {
+	animation: Show 0.3s ease-in forwards;
+	position: relative;
+	/* 498 */
+	height: clamp(15rem, 8.089rem + 30.71vw, 31.125rem);
+	/* 470 */
+	max-width: clamp(15rem, 8.839rem + 27.38vw, 29.375rem);
+	&__wrapper {
+		/* 463 */
+		height: clamp(17rem, 11.884rem + 22.74vw, 28.938rem);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 12px 0;
+		/* 65 65 0 65 */
+		padding: clamp(2.188rem, 1.384rem + 3.57vw, 4.063rem)
+			clamp(2.188rem, 1.384rem + 3.57vw, 4.063rem) 0
+			clamp(2.188rem, 1.384rem + 3.57vw, 4.063rem);
+		border: 1px solid $main-border;
+		border-radius: 40px 40px 0 0;
+		border-bottom: none;
+	}
+	&__image {
+		position: absolute;
+		/* 56 */
+		bottom: clamp(-1.25rem, -3.286rem + 9.05vw, 3.5rem);
+		left: 24%;
+		width: clamp(7.813rem, 4.464rem + 14.88vw, 15.625rem);
+		height: clamp(7.813rem, 4.464rem + 14.88vw, 15.625rem);
+	}
+	&__title {
+		/* 24 */
+		font-size: clamp(0.75rem, 0.429rem + 1.43vw, 1.5rem);
+		font-weight: 600;
+		text-align: center;
+		color: $main-color;
+		margin: 0 0 50px 0;
+	}
+	&__btn {
+		position: absolute;
+		/* 0 */
+		bottom: clamp(-3.125rem, -4.464rem + 5.95vw, 0rem);
+		left: 0;
+		color: $main-color;
+		/* 24 */
+		font-size: clamp(0.75rem, 0.429rem + 1.43vw, 1.5rem);
+		font-weight: bold;
+		border: 1px solid $main-border;
+		text-transform: uppercase;
+		border-radius: 40px;
+		/* 14 0 */
+		padding: clamp(0.438rem, 0.25rem + 0.83vw, 0.875rem) 0;
+		width: 100%;
+		transition: all 0.3s ease-in-out;
+
+		&:hover {
+			color: $white-color;
+			background: $accent-bg;
+		}
+	}
+}
+
+@media (max-width: 1200px) {
+	.form {
+		&__wrapper {
+			gap: 50px clamp(1.25rem, -6.199rem + 15.77vw, 5.625rem);
+		}
+		&__title {
+			text-align: center;
+			font-size: clamp(1.25rem, -0.24rem + 3.15vw, 2.125rem);
+		}
+		&__text {
+			max-width: clamp(17.813rem, -6.664rem + 51.8vw, 32.188rem);
+			font-size: clamp(1.25rem, 0.186rem + 2.25vw, 1.875rem);
+		}
+		&__input {
+			font-size: clamp(1rem, 0.149rem + 1.8vw, 1.5rem);
+			padding: clamp(0.813rem, 0.068rem + 1.58vw, 1.25rem) 0
+				clamp(0.813rem, 0.068rem + 1.58vw, 1.25rem)
+				clamp(1.25rem, 0.186rem + 2.25vw, 1.875rem);
+		}
+		&__btn {
+			font-size: clamp(1rem, 0.149rem + 1.8vw, 1.5rem);
+			padding: clamp(0.625rem, 0.199rem + 0.9vw, 0.875rem) 0;
+			border-radius: clamp(1.5rem, -0.203rem + 3.6vw, 2.5rem);
+		}
+	}
+}
+@media (max-width: 755px) {
+	.form {
+		&__title {
+			font-size: clamp(1.125rem, 0.898rem + 1.01vw, 1.375rem);
+		}
+	}
+}
+@media (max-width: 620px) {
+	.form {
+		&__wrapper {
+			flex-direction: column;
+		}
+		&__form {
+			margin: 30px 0 0 0;
+			width: 100%;
+		}
+		&__message {
+			padding: 0;
+			width: 100%;
+			text-align: center;
+			&::after {
+				display: none;
+			}
+		}
+		&__text {
+			display: block;
+			margin: 0 auto;
+		}
+	}
+}
+
+@keyframes Show {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 0.5;
+	}
+	100% {
+		opacity: 1;
+	}
+}

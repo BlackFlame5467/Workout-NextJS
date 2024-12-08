@@ -1,0 +1,168 @@
+@import '@/styles/base/vars';
+
+.task {
+	display: flex;
+	align-items: stretch;
+	gap: 0 20px;
+	position: relative;
+
+	&:not(:last-child)::after {
+		content: '';
+		position: absolute;
+		left: 11px;
+		top: 0;
+		bottom: 0;
+		width: 2px;
+		height: calc(100% + 25px);
+		background: repeating-linear-gradient(
+			to bottom,
+			$days-border,
+			$days-border 5px,
+			transparent 5px,
+			transparent 10px
+		);
+	}
+	&__checkbox {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 25px;
+		height: 25px;
+		border-radius: 50%;
+		border: 2px solid $checkbox-border;
+		cursor: pointer;
+		z-index: 1;
+		position: relative;
+		background: $second-bg;
+	}
+	&__checked {
+		background: $checkbox-bg;
+	}
+
+	&__wrapper {
+		width: 100%;
+	}
+
+	&__block {
+		display: grid;
+		grid-template-columns: 3fr 6fr 1fr;
+		align-items: center;
+		padding: 30px 40px;
+		background: $main-bg;
+		border-radius: 15px;
+		min-height: 140px;
+	}
+	&__info {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		margin: 0 0 0 55px;
+	}
+	&__title {
+		font-size: 24px;
+		font-weight: 600;
+		color: $main-color;
+	}
+	&__text {
+		font-size: 15px;
+		font-weight: 600;
+		color: $main-color;
+	}
+	&__btn {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 30px;
+		height: 30px;
+		margin-left: auto;
+		border-radius: 50%;
+		transition: background 0.3s ease-in;
+		&:hover {
+			background: rgba($accent-bg, 0.3);
+		}
+	}
+	&__completed {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 30px 40px;
+		border-radius: 15px;
+		background: $pink-bg;
+	}
+	&__container {
+		display: flex;
+		align-items: center;
+		gap: 0 20px;
+	}
+	&__message {
+		font-size: 15px;
+		font-weight: bold;
+		padding: 5px 20px;
+		border-radius: 30px;
+		background: $dark-pink-bg;
+		color: $white-color;
+	}
+}
+
+@media (max-width: 1200px) {
+	.task {
+		&__block,
+		&__completed {
+			padding: clamp(1.25rem, 0.186rem + 2.25vw, 1.875rem)
+				clamp(1.563rem, -0.034rem + 3.38vw, 2.5rem);
+		}
+		&__message {
+			font-size: clamp(0.625rem, 0.093rem + 1.13vw, 0.938rem);
+			padding: clamp(0.313rem, -0.22rem + 1.13vw, 0.625rem)
+				clamp(0.938rem, 0.405rem + 1.13vw, 1.25rem);
+		}
+
+		&__title {
+			font-size: clamp(1rem, 0.149rem + 1.8vw, 1.5rem);
+		}
+		&__text {
+			font-size: clamp(0.625rem, 0.093rem + 1.13vw, 0.938rem);
+		}
+		&__btn {
+			width: clamp(0.938rem, -0.659rem + 3.38vw, 1.875rem);
+			height: clamp(0.938rem, -0.659rem + 3.38vw, 1.875rem);
+		}
+	}
+}
+@media (max-width: 620px) {
+	.task {
+		// max-width: 275px;
+		&__block {
+			display: flex;
+			flex-direction: column;
+			padding: 0;
+			min-height: auto;
+			height: 190px;
+			> img {
+				height: 130px;
+			}
+		}
+		&__info {
+			width: 100%;
+			align-items: start;
+			justify-content: center;
+			gap: 12px 0;
+			margin: 0 0 0 35px;
+		}
+		&__btn {
+			display: none;
+		}
+		&__wrapper {
+			width: 275px;
+		}
+		&__btn.task__btn_completed {
+			display: block;
+		}
+		&__completed {
+		}
+		&__message {
+			display: none;
+		}
+	}
+}

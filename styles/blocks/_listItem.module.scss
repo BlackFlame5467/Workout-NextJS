@@ -1,0 +1,28 @@
+@import '@/styles/base/vars';
+
+.list__item {
+	display: inline-block;
+	font-size: 24px;
+	> a {
+		position: relative;
+	}
+	> a::after {
+		content: '';
+		position: absolute;
+		width: 0;
+		height: 2px;
+		bottom: -3px;
+		left: 0;
+		background-color: $main-border;
+		transition: width 0.3s ease-in-out;
+	}
+	> a:hover::after {
+		width: 100%;
+	}
+}
+
+@media (max-width: 1200px) {
+	.list__item {
+		font-size: clamp(1.125rem, 0.486rem + 1.35vw, 1.5rem);
+	}
+}

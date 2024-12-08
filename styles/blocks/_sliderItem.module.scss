@@ -1,0 +1,80 @@
+@import '@/styles/base/vars';
+
+.day {
+	display: inline-block;
+	border: 2px solid $accent-bg;
+	border-radius: 12px;
+	cursor: pointer;
+	transition: border-color 0.3s ease-in-out;
+
+	&:hover {
+		border-color: $second-border;
+
+		.day__title {
+			color: $second-color;
+		}
+	}
+
+	&__title {
+		text-align: center;
+		padding: 25px 40px;
+		color: $main-color;
+		font-weight: bold;
+		font-size: 18px;
+		transition: color 0.3s ease-in-out;
+	}
+
+	&__firstNotDone {
+		pointer-events: none;
+		border-color: $hover-border;
+		> h3 {
+			color: $hover-color;
+		}
+	}
+
+	&__done {
+		position: relative;
+		pointer-events: none;
+		background: $pink-bg;
+		border-color: $checkbox-border;
+		> h3 {
+			color: $done-color;
+		}
+		&::after {
+			content: '';
+			position: absolute;
+			top: -1px;
+			right: -8px;
+			width: 25px;
+			height: 25px;
+			z-index: 9;
+			border-radius: 50%;
+			background: $checkbox-bg;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0px;
+			right: 0.5px;
+			width: 10px;
+			height: 18px;
+			z-index: 10;
+			border-right: 2px solid white;
+			border-bottom: 2px solid white;
+			transform: rotate(45deg);
+		}
+	}
+}
+
+@media (max-width: 1200px) {
+	.day {
+		&__title {
+			padding: clamp(0.938rem, -0.127rem + 2.25vw, 1.563rem)
+				clamp(1.438rem, -0.372rem + 3.83vw, 2.5rem);
+			font-size: clamp(0.75rem, 0.111rem + 1.35vw, 1.125rem);
+		}
+	}
+}

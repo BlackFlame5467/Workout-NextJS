@@ -1,0 +1,17 @@
+body {
+	box-sizing: border-box;
+	background: $main-bg;
+}
+
+.container {
+	height: 100%;
+	max-width: 1140px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+@media (max-width: 1200px) {
+	body {
+		background: $second-bg;
+	}
+}

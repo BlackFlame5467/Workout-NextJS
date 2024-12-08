@@ -1,0 +1,112 @@
+@import '@/styles/base/vars';
+
+.faq {
+	margin: 0 0 50px 0;
+
+	&__block {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 20px 0;
+	}
+	&__title {
+		font-size: 34px;
+		font-weight: 600;
+		color: $main-color;
+		margin: 0 0 20px 30px;
+		text-transform: uppercase;
+	}
+	&__btn {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 22px;
+		height: 22px;
+
+		&::after,
+		&::before {
+			position: absolute;
+			top: 10px;
+			left: 0;
+			content: '';
+			width: 22px;
+			height: 2px;
+			background: $accent-bg;
+			transition: transform 0.2s ease-in-out;
+		}
+		&.faq__plus::after {
+			transform: rotate(90deg);
+		}
+	}
+
+	&__item {
+		&_title {
+			font-size: 24px;
+			font-weight: 600;
+			color: $main-color;
+		}
+	}
+	&__wrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__line {
+		width: 100%;
+		height: 1px;
+		background: $accent-bg;
+		margin: 12px 0;
+	}
+	&__info {
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.4s ease-in-out;
+	}
+	&__info.faq__none {
+		opacity: 0;
+		transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+	}
+	&__info.faq__show {
+		max-height: 500px;
+		opacity: 1;
+	}
+	&__text {
+		font-size: 20px;
+		color: $main-color;
+		opacity: 0.7;
+	}
+}
+
+@media (max-width: 1200px) {
+	.faq {
+		margin: 0 0 clamp(1.438rem, -1.436rem + 6.08vw, 3.125rem) 0;
+		&__title {
+			font-size: clamp(1.375rem, 0.098rem + 2.7vw, 2.125rem);
+		}
+		&__item {
+			&_title {
+				font-size: clamp(0.938rem, -0.02rem + 2.03vw, 1.5rem);
+			}
+		}
+		&__btn {
+			width: clamp(0.938rem, 0.193rem + 1.58vw, 1.375rem);
+			height: clamp(0.938rem, 0.193rem + 1.58vw, 1.375rem);
+			&::after,
+			&::before {
+				width: clamp(0.938rem, 0.193rem + 1.58vw, 1.375rem);
+			}
+		}
+		&__text {
+			font-size: clamp(0.813rem, 0.068rem + 1.58vw, 1.25rem);
+		}
+	}
+}
+@media (max-width: 755px) {
+	.faq {
+		&__title {
+			margin: 0 0 20px 0;
+			font-size: clamp(1.125rem, 0.898rem + 1.01vw, 1.375rem);
+		}
+	}
+}
